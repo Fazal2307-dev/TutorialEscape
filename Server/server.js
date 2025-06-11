@@ -9,15 +9,12 @@ app.use(express.json());
 app.use(cors());
 
 // Database configuration
-const dbConfig = {
+const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '', // Add password if set in MySQL
-    database: 'form_db',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-};
+    user: 'root',      // Keep this if your MySQL username is root
+    password: 'YOUR_MYSQL_PASSWORD_HERE',  // Replace with your actual MySQL password
+    database: 'user_registration'  // Make sure this database exists
+});
 
 // Create connection pool
 const pool = mysql.createPool(dbConfig);
